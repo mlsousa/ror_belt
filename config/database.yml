@@ -17,7 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # username: ubuntu
+  username: ubuntu
   # username: vagrant
   # uncomment ubuntu user and #out vagrant user when uploading to aws / vice versa when working on project locally
 
