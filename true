@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20170630025340_add_email_index_to_users.rb

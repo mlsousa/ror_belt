@@ -1,0 +1,25 @@
+<div id="container">
+	<h2>All User Account</h2>
+    	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<td><h5>First Name</h5></td>
+				<td><h5>Last Name</h5></td>
+				<td><h5>Email</h5></td>
+				<td><h5>Action</h5></td>
+			</tr>
+		</thead>
+		<tbody>
+            <% @users.each do |user| %>
+
+			<tr>
+			  <td><h6><%= user.first_name %></h6></td>
+			  <td><h6><%= user.last_name %></h6></td>
+			  <td><h6><%= user.email %></h6></td>
+			  <td><h6><a href="/"> Add User | </a><a href="/users/<%=@user.id%>/edit">Edit | </a><a href="/users/<%= @user.id %>/delete"> Delete</a></h6></td>
+			</tr>
+            <% end %>
+		</tbody>
+	</table>
+
+</div>
