@@ -12,25 +12,22 @@
 
 ActiveRecord::Schema.define(version: 20170702203748) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "playlist_songs", force: :cascade do |t|
     t.integer  "song_id"
     t.integer  "playlist_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.index ["playlist_id"], name: "index_playlist_songs_on_playlist_id", using: :btree
-    t.index ["song_id"], name: "index_playlist_songs_on_song_id", using: :btree
-    t.index ["user_id"], name: "index_playlist_songs_on_user_id", using: :btree
+    t.index ["playlist_id"], name: "index_playlist_songs_on_playlist_id"
+    t.index ["song_id"], name: "index_playlist_songs_on_song_id"
+    t.index ["user_id"], name: "index_playlist_songs_on_user_id"
   end
 
   create_table "playlists", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_playlists_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_playlists_on_user_id"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -47,11 +44,7 @@ ActiveRecord::Schema.define(version: 20170702203748) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["email"], name: "index_users_on_email", using: :btree
+    t.index ["email"], name: "index_users_on_email"
   end
 
-  add_foreign_key "playlist_songs", "playlists"
-  add_foreign_key "playlist_songs", "songs"
-  add_foreign_key "playlist_songs", "users"
-  add_foreign_key "playlists", "users"
 end
