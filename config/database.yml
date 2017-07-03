@@ -17,12 +17,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-
-  # uncomment ubuntu user and #out vagrant user when uploading to aws / vice versa when working on project locally
-
   username: ubuntu
+  pool: 5
   # username: vagrant
-
+  # uncomment ubuntu user and #out vagrant user when uploading to aws / vice versa when working on project locally
 
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
