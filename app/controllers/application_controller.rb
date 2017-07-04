@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
 
   before_action :require_login
   helper_method :current_user, :logged_in?
-  # helper_method :current_song
+  helper_method :current_idea
 
   def require_login
-    redirect_to "/sessions/new" unless session[:user_id]
+    redirect_to "/sessions" unless session[:user_id]
   end
 
   def current_user
@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
     def logged_in?
       current_user != nil
     end
+
+  def current_idea
+    @current_idea ||= BrightIdea.find(params[:idea][:bright_idea_id])
+  end
 
   # def current_song
   #   @song ||= Song.find(params[:song][:song_id])

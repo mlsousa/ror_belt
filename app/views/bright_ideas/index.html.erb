@@ -1,0 +1,36 @@
+
+<h1>Hi <%= current_user.name %></h1>
+<form action="/bright_ideas" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<textarea name="bright_idea[content]" id="Content" rows="4" cols="40" placeholder="Post something witty here..."></textarea>
+	<br>
+	<input type="submit" value="Idea!">
+</form>
+
+<h3>All Bright Ideas</h3>
+<% @bright_ideas.all.each do |bright_idea| %>
+	<h5><%= bright_idea.idea %></h5>
+
+	<% if bright_idea.user == current_user %>
+		<h5><%= bright_idea.idea %></h5>
+		<a href="/bright_ideas/<%= bright_idea.id %>"></a>
+		<form action = "/bright_ideas/<%= bright_idea.id %>" method = "post">
+		    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			<input type="hidden" name="_method" value="delete">
+			<input type = 'submit' value = "Delete Idea">
+		</form>
+	<% end %>
+	<% unless bright_idea.users.include?(current_user) %>
+		<form action = "/likes" method = "post">
+		    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		    <input type="hidden" name="like[bright_idea_id]" value = "<%= bright_idea.id %>">
+			<input type="submit" name="Like" value = "Like">
+		</form>
+	<% else %>
+		<form action = "/likes/<%= Like.where(user: current_user, bright_idea: bright_idea).first.id%>" method = "post">
+		    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			<input type="hidden" name="_method" value="delete">
+			<input type="submit" name="Unlike" value = "Unlike">
+		</form>
+	<% end %>
+<% end %>

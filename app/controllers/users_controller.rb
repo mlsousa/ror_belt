@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     end
 
     def register
-        @user=User.create(first_name: params[:user][:first_name], last_name: params[:user][:last_name], email: params[:user][:email], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
+        @user=User.create(name: params[:user][:name], alias: params[:user][:alias], email: params[:user][:email], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
         if @user
             session[:user_id] = @user.id
             # @playlist = Playlist.create(user: @user)
@@ -54,6 +54,6 @@ class UsersController < ApplicationController
         end
 
         def user_params
-            params.require(:user).permit(:id, :first_name, :last_name, :email, :password, :password_confirmation)
+            params.require(:user).permit(:id, :name, :alias, :email, :password, :password_confirmation)
         end
 end

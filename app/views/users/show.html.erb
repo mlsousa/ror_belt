@@ -1,27 +1,24 @@
 
 
 <div id="container">
-	<h2>My Account</h2>  <a href="/">Dashboard</a>
+	<h2>My Account</h2>  <a href="/bright_ideas">Bright Ideas  |  </a> <a href="/">Logout </a>
 
 
 	<table class="table table-striped table-bordered">
 		<thead>
-			<h3><%= current_user.first_name %> <%=current_user.last_name %>'s Whatchmacallit</h3>
+			<h3>Name: <%= current_user.name %>
+			<h3>Alias: <%= current_user.alias %> </h3>
+			<h3>Email: <%= current_user.email %> </h3>
 			<tr>
-				<td><h5>Artist</h5></td>
-				<td><h5>Title</h5></td>
-				<td><h5>Added 'x' Times</h5></td>
+				<td><h5>Total Number of Posts:</h5></td>
+				<td><h5>Total Number of Likes</h5></td>
 			</tr>
 		</thead>
 		<tbody>
-			<%   %>
             <tr>
-                <td><h6><%=  %></h6></td>
-				<td><h6><%=  %></h6></td>
-                <td><h6><%=  %></h6></td>
+                <td><h6><%= current_user.bright_ideas  %></h6></td>
+				<td><h6><%= current_user.bright_ideas_liked %></h6></td>
             </tr>
-
-		<% %>
 		</tbody>
 	</table>
 

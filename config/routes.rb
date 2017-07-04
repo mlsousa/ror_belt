@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  root 'bright_ideas#index'
+  get '/bright_ideas' => 'bright_ideas#index'
+  get 'bright_ideas/:id' => 'bright_ideas#show'
+  post '/likes' => 'likes#create'
+  post '/bright_ideas' => 'bright_ideas#create'
+
+
+
   get '/' => 'sessions#new'
   get '/sessions' => 'sessions#new'
   # post '/sessions' => 'sessions#create'

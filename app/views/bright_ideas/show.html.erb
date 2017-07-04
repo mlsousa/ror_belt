@@ -1,0 +1,27 @@
+
+
+<div id="container">
+  <h5><a href="/users/<%= current_user.id %>">My Account</a></h5>
+	<h2><%=@bright_ideas.current_idea.idea%></h2>
+
+    <h2>People who liked this post:</h2>
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<td><h5>Alias:</h5></h5></td>
+				<td><h5>Name:</h5></td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @users.each do |user| %>
+
+
+				<tr>
+					<td><h6><a href="/users/<%= user.id %>" value="<%=user.id%>" name="user[:user_id]"><%= user.alias %></a></h6></td>
+					<td><h6><%= user.name %> </h6></td>
+
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
