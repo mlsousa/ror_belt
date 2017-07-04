@@ -17,7 +17,7 @@ class UsersController < ApplicationController
             # binding.pry
             # session[:playlist] = @playlist
             # redirect_to "/users/#{@user.id}"
-            redirect_to "/playlists"
+            redirect_to "/users/#{current_user.id}"
         else
             flash[:errors] = ["Your email didn't match any registered ones or your password was incorrect.  Please fill out the registration form completely before proceeding or try logging in again."]
             redirect_to "/"
@@ -26,9 +26,7 @@ class UsersController < ApplicationController
 
     def show
         @user=User.find(params[:id])
-        @songs=Song.all
         @users=User.all
-        @playlistsongs = PlaylistSong.all
     end
 
     def edit
