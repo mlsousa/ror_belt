@@ -5,6 +5,7 @@ class LikesController < ApplicationController
 
     def create
       Like.create like_params
+      @user = current_user
       redirect_to "/users/#{current_user.id}"
     end
 
