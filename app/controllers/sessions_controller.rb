@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.clear
-        redirect_to "sessions"
+        redirect_to "/sessions"
     end
 
 end
