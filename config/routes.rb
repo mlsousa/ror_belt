@@ -2,17 +2,18 @@ Rails.application.routes.draw do
 
   get '/' => 'sessions#new'
   get '/sessions' => 'sessions#new'
-  post '/sessions' => 'sessions#create'
+  # post '/sessions' => 'sessions#create'
   delete '/sessions/:id' => 'sessions#destroy'
 
-  post '/login' => 'sessions#login'
+  post '/login' => 'users#login'
+  post '/register' => 'users#register'
 
   get 'users' => 'users#index'
   get 'users/:id' => 'users#show'
 
   # post '/users/:id' => 'songs#create'
 
-  post '/register' => 'users#register'
+
 
 
 

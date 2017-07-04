@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :require_login
   helper_method :current_user, :logged_in?
-  helper_method :current_song
+  # helper_method :current_song
 
   def require_login
     redirect_to "/sessions/new" unless session[:user_id]
@@ -14,15 +14,15 @@ class ApplicationController < ActionController::Base
   end
     def logged_in?
       current_user != nil
-    end
+    # end
 
-  def current_song
-    @song ||= Song.find(params[:song][:song_id])
-  end
-
-  def user_playlist
-    @playlist = current_user.playlist
-  end
+  # def current_song
+  #   @song ||= Song.find(params[:song][:song_id])
+  # end
+  #
+  # def user_playlist
+  #   @playlist = current_user.playlist
+  # end
 
 
 

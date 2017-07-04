@@ -24,6 +24,17 @@ class UsersController < ApplicationController
         end
     end
 
+    def login
+        @user = User.find_by_email(params[:user][:email]).try(:authenticate, params[:user][:password])
+        if @user
+            session[:user_id] = @user.id
+            redirect_to "/users/#{current_user.id}"
+        else
+            flash[:errors] = ["Your email didn't match any registered ones or your password was incorrect.  Please fill out the registration form completely before proceeding or try logging in again."]
+            redirect_to "/"
+        end
+    end
+
     def show
         @user=User.find(params[:id])
         @users=User.all
