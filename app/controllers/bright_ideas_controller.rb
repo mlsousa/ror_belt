@@ -2,6 +2,7 @@ class BrightIdeasController < ApplicationController
 
     def index
         @bright_ideas = BrightIdea.all
+        @user = current_user
     end
 
     def new
@@ -19,7 +20,7 @@ class BrightIdeasController < ApplicationController
     end
     def show
         @bright_ideas = BrightIdea.all
-        binding.pry
+
     end
 
     def update
