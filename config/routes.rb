@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/likes' => 'likes#create'
   post '/bright_ideas' => 'bright_ideas#create'
 
-  delete '/bright_ideas' => 'bright_ideas#destroy'
+  delete '/bright_ideas/:id' => 'bright_ideas#destroy'
 
 
 
